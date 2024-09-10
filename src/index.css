@@ -11,3 +11,89 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pagination li {
+  margin: 0 5px;
+}
+
+.pagination a {
+  text-decoration: none;
+  color: #007bff;
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.pagination .active a {
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #007bff;
+}
+
+.container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+em {
+  font-weight: bold;
+    background: linear-gradient(to bottom, transparent 44%, #FFCF25 45%);
+    font-style: normal;
+}
+
+.react-datepicker-wrapper{
+  width: 100%;
+}
+
+/*固定列*/
+.sticky-column {
+  position: sticky;
+  left: 0;
+  background-color: white;
+  z-index: 1;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sticky-column-2 {
+  position: sticky;
+  left: 50px; 
+  background-color: white;
+  z-index: 1;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sticky-column-3 {
+  position: sticky;
+  left: 130px; 
+  background-color: white;
+  z-index: 1;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 灰色背景，適用於單數列 */
+.table-striped tbody tr:nth-of-type(odd) .sticky-column,
+.table-striped tbody tr:nth-of-type(odd) .sticky-column-2,
+.table-striped tbody tr:nth-of-type(odd) .sticky-column-3 {
+  background-color: #f0f0f0; 
+}
+
+/* 白色背景，適用於雙數列 */
+.table-striped tbody tr:nth-of-type(even) .sticky-column,
+.table-striped tbody tr:nth-of-type(even) .sticky-column-2,
+.table-striped tbody tr:nth-of-type(even) .sticky-column-3 {
+  background-color: #ffffff; 
+}
+
+
