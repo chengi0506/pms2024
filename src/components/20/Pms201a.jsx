@@ -19,6 +19,7 @@ import {
 } from "../../config";
 import MyDatePicker from "../tools/MyDatePicker";
 import DropdownSelect from "../tools/MyDropdownSelect";
+import { useLocation } from "react-router-dom";
 
 const HOME = () => {
   const [proList, setProList] = useState([]);
@@ -31,6 +32,17 @@ const HOME = () => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [currentItem, setCurrentItem] = useState(null);
+
+  const location = useLocation();
+
+  // 解析 URL 中的查詢參數
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const query = params.get("query");
+    if (query) {
+      handleSearch({ target: { value: query } });
+    }
+  }, [location]);
 
   //編輯財產State
   const resetEditItem = () => {
@@ -554,6 +566,7 @@ const HOME = () => {
                         value={searchQuery}
                         onChange={handleSearch}
                         className="form-control"
+                        style={{ textTransform: "uppercase" }}
                       />
                       <div className="input-group-append">
                         <div className="input-group-text">

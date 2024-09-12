@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { SYSTEM_NAME } from "../config";
 import axios from "axios";
 import { HOST_URL, GET_GPASS_BY_ID } from "../config";
@@ -10,22 +10,37 @@ const SidebarHeader = () => (
   </a>
 );
 
-const SidebarSearch = () => (
-  <div className="form-inline">
-    <div className="input-group">
-      <input
-        id="tbSearch"
-        className="form-control form-control-sidebar"
-        placeholder="請輸入查詢條件"
-      />
-      <div className="input-group-append">
-        <button className="btn btn-sidebar">
-          <i className="fas fa-search fa-fw" />
-        </button>
+const SidebarSearch = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    if (searchTerm) {
+      navigate(`/Pms201a?query=${searchTerm}`);
+    } else {
+      navigate(`/Pms201a`);
+    }
+  };
+
+  return (
+    <div className="form-inline">
+      <div className="input-group">
+        <input
+          id="tbSearch"
+          className="form-control form-control-sidebar"
+          placeholder="請輸入財產編號"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <div className="input-group-append">
+          <button className="btn btn-sidebar" onClick={handleSearch}>
+            <i className="fas fa-search fa-fw" />
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 const NavLinkItem = ({ to, icon, label }) => (
   <NavLink to={to} className="nav-link">
