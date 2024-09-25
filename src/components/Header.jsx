@@ -6,7 +6,7 @@ import { UserContext } from "../UserContext";
 
 function Header() {
   const [showLogoutModal, setShowLogoutModal] = useState(false);
-  const { setAuth, setUserId } = useContext(UserContext);
+  const { setAuthInfo } = useContext(UserContext);
 
   // 接收 setAuth 為 prop
   const navigate = useNavigate();
@@ -17,9 +17,8 @@ function Header() {
     localStorage.removeItem("passwd");
     localStorage.removeItem("remember"); */
 
-    // 設置認證狀態為 false
-    setUserId("");
-    setAuth(false);
+    // 設置認證狀態為空
+    setAuthInfo("");
 
     // 導回登入頁面
     navigate("/login");

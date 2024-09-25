@@ -277,7 +277,7 @@ const HOME = () => {
   };
 
   //保存新增狀態
-  const handleAddChange = (e) => {
+  const handleAddChange = async (e) => {
     if (!e || !e.target) return;
 
     const { name, value } = e.target;
@@ -307,10 +307,10 @@ const HOME = () => {
       if (科目 && 子目 && 類別) {
         try {
           console.debug(科目 + 子目 + 類別);
-          const response = axios.get(HOST_URL + GET_PRO_NO, {
+          const response = await axios.get(HOST_URL + GET_PRO_NO, {
             params: { 科目, 子目, 類別 },
           });
-
+          console.debug(response.status);
           if (response.status === 200) {
             console.info("response:" + response.data);
             setNewItem((prevItem) => ({

@@ -139,7 +139,7 @@ function Pms101a() {
       // 鎖定按鈕，防止重複提交
       setIsSubmitting(true);
       await axios
-        .put(HOST_URL + UPDATE_SYSSETTING, formattedData)
+        .post(HOST_URL + UPDATE_SYSSETTING, formattedData)
         .then((response) => {
           setShowModal(false);
           setShowSuccessModal(true);

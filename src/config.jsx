@@ -10,6 +10,7 @@ export const COMPANY_NAME = "財團法人農漁會南區資訊中心";
 export const COMPANY_SITE = "http://www.fast.org.tw";
 //API
 export const HOST_URL = "http://localhost:5035/api/v1/Pms/";
+//export const HOST_URL = "http://172.16.5.142:7171/api/v1/Pms/";
 export const ADD_PROLISTS = "AddPro";
 export const GET_PROLISTS = "GetProLists";
 export const EDIT_PROLIST = "EditProList";

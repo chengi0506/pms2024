@@ -53,8 +53,11 @@ const App = () => {
 };
 
 const PrivateRoutes = () => {
-  const { auth } = useContext(UserContext);
+  const { authInfo } = useContext(UserContext);
+  const { auth } = authInfo;
   const minHeight = useMinHeight();
+
+  console.debug(auth);
 
   return auth ? (
     <>

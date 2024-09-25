@@ -141,7 +141,7 @@ function Pms105a() {
 
   const updateContent = async (pro, newContent) => {
     try {
-      const response = await axios.put(`${HOST_URL + UPDATE_CODE}`, {
+      const response = await axios.post(`${HOST_URL + UPDATE_CODE}`, {
         代號: pro.代號,
         類別: pro.類別,
         名稱: pro.名稱,

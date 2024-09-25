@@ -10,7 +10,7 @@ const Login = () => {
   const [UserId, setUserid] = useState("");
   const [Password, setPasswd] = useState("");
   const [remember, setRemember] = useState(false);
-  const { setAuth, setUserId } = useContext(UserContext);
+  const { setAuthInfo } = useContext(UserContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -40,6 +40,9 @@ const Login = () => {
       });
 
       if (response.status === 200) {
+        // 更新 localStorage
+        const authInfo = { userId: UserId, auth: true };
+
         if (remember) {
           localStorage.setItem("remember", remember);
           localStorage.setItem("userid", UserId);
@@ -50,8 +53,11 @@ const Login = () => {
           localStorage.removeItem("passwd");
         }
 
-        setUserId(UserId);
-        setAuth(true);
+        // 將 authInfo 存入 localStorage
+        localStorage.setItem("authInfo", JSON.stringify(authInfo));
+
+        // 更新 context 中的 authInfo
+        setAuthInfo(authInfo);
 
         Swal.fire({
           position: "top-end",

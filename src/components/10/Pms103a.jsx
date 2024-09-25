@@ -171,7 +171,7 @@ const Pms103a = () => {
     newGroupId
   ) => {
     try {
-      await axios.put(HOST_URL + UPDATE_CUSER_INFO, {
+      await axios.post(HOST_URL + UPDATE_CUSER_INFO, {
         使用者代號: userId,
         使用者名稱: userName,
         使用者密碼: userPassword,
@@ -216,7 +216,7 @@ const Pms103a = () => {
       // 鎖定按鈕，防止重複提交
       setIsSubmitting(true);
 
-      await axios.put(HOST_URL + UPDATE_CUSER_INFO, editItem);
+      await axios.post(HOST_URL + UPDATE_CUSER_INFO, editItem);
       const updatedList = proList.map((item) =>
         item === currentItem ? editItem : item
       );

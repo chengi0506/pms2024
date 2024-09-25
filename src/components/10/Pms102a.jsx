@@ -113,7 +113,7 @@ const Pms102a = () => {
     );
 
     try {
-      await axios.put(HOST_URL + UPDATE_PERMISSION_LEVEL, {
+      await axios.post(HOST_URL + UPDATE_PERMISSION_LEVEL, {
         群組代號: updatedList[ListIndex].群組代號,
         程式代號: updatedList[ListIndex].程式代號,
         權限等級: updatedPermissionLevel,
@@ -145,7 +145,7 @@ const Pms102a = () => {
       console.info("newGroup:" + newGroup.groupId);
       // 鎖定按鈕，防止重複提交
       setIsSubmitting(true);
-      await axios.put(HOST_URL + CREATEGROUP, null, {
+      await axios.post(HOST_URL + CREATEGROUP, null, {
         params: {
           _groupid: newGroup.groupId,
         },

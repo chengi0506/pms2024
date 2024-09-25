@@ -23,7 +23,7 @@ const Pms104r = () => {
     }
 
     try {
-      const response = await axios.put(HOST_URL + UPDATE_PASSWORD, {
+      const response = await axios.post(HOST_URL + UPDATE_PASSWORD, {
         userId,
         oldPassword,
         newPassword,
@@ -100,7 +100,7 @@ const Pms104r = () => {
                       type="password"
                       className="form-control"
                       placeholder="輸入舊密碼"
-                      autocomplete="current-password"
+                      autoComplete="current-password"
                       value={oldPassword}
                       onChange={(e) => setOldPassword(e.target.value)}
                     />
@@ -114,7 +114,7 @@ const Pms104r = () => {
                     <input
                       type="password"
                       className="form-control"
-                      autocomplete="new-password"
+                      autoComplete="new-password"
                       placeholder="輸入新密碼"
                       value={newPassword}
                       onChange={(e) => setNewPassword(e.target.value)}
@@ -129,7 +129,7 @@ const Pms104r = () => {
                     <input
                       type="password"
                       className="form-control"
-                      autocomplete="new-password"
+                      autoComplete="new-password"
                       placeholder="重複輸入新密碼"
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
